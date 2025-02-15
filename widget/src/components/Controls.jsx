@@ -1,18 +1,15 @@
 import PropTypes from "prop-types";
 
 export const Controls = ({ options, onClick }) => {
-  const [good, neutral, bad] = options;
   return (
     <div>
-      <button type="button" onClick={() => onClick(good)}>
-        {good}
-      </button>
-      <button type="button" onClick={() => onClick(neutral)}>
-        {neutral}
-      </button>
-      <button type="button" onClick={() => onClick(bad)}>
-        {bad}
-      </button>
+      {options.map((option, idx) => {
+        return (
+          <button type="button" key={idx} onClick={() => onClick(option)}>
+            {option}
+          </button>
+        );
+      })}
     </div>
   );
 };
