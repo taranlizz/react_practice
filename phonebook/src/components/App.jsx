@@ -56,10 +56,12 @@ export class App extends Component {
         <ContactForm onSubmit={this.onContactSubmit} />
         <h2>Contacts</h2>
         <ContactFilter onChange={this.onFilterChange} value={filter} />
-        <ContactList
-          contacts={filteredContacts}
-          onDelete={this.onContactDelete}
-        />
+        {Boolean(filteredContacts.length) && (
+          <ContactList
+            contacts={filteredContacts}
+            onDelete={this.onContactDelete}
+          />
+        )}
         <GlobalStyle />
       </Layout>
     );
